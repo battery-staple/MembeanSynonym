@@ -1,8 +1,11 @@
 # Membean Synonym Finder
 ![A screenshot of using the tool](img.png)
-A simple tool to find possible membean word replacements in essays. 
+A simple tool to help with adding membean words to essays. 
+It's capable of identifying membean words already in your essay,
+as well as of finding other words that could be replaced with membean words.
+
 It scans each word in the essay, and provides a list of possible membean word synonyms for each one.
-Keep in mind that there are many false positives: many words have multiple meanings—if you blindly follow all the suggestions of this tool without actually knowing what the words mean, you will lose points.
+Keep in mind that there are many false positives; many words have multiple meanings. If you blindly follow all the suggestions of this tool without actually knowing what the words mean, you will lose points.
 And you will probably deserve it.
 ## Dependencies
 You **must** have python installed in order to run this project. See https://www.python.org/downloads/ for more information.
@@ -41,10 +44,15 @@ How do you want to input your essay (type 'c' to get it from your clipboard; typ
 ```
 Selecting `m` will allow you to manually input the text to be analyzed. 
 Selecting `c` will automatically input whatever has been copied to the clipboard using Ctrl+C (Cmd+C on macOS). 
-If `pyperclip` is not installed, you'll have to input the text manually.
+
+If `pyperclip` is not installed, you'll have to input the text manually. Note that your shell may have issues pasting in large amounts of text: for this reason, using the `c` mode with `pyperclip` is strongly recommended.
 ### Membean Level Selection
 This tool can be configured to only use membean words of a specific level or levels. 
-To do so, respond with a comma separated list (such as `3, 4, 5`) when prompted:  
+To do so, respond with a comma separated list (ex. `3, 4, 5`) when prompted:  
 ```
 Which membean levels would you like to include? Enter a comma separated list, or press enter to include words from all levels.
 ```
+## Data Sources
+The full membean word list can be found at https://membean.com/products/educator/wordlist.
+
+Synonyms are pulled from the Moby Thesaurus II, which can be found at https://onlinebooks.library.upenn.edu/webbin/gutbook/lookup?num=3202.
