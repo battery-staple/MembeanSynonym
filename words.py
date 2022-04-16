@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Set, Dict, List, Optional
 
 if getattr(sys, 'frozen', False):
-    application_path = Path(os.path.dirname(sys.executable))
+    application_path = Path(sys._MEIPASS)
 else:
     application_path = Path(os.path.dirname(os.path.abspath(__file__)))
 
@@ -32,9 +32,7 @@ all_membean_words: Set[str] = set()
 def cache_membean_words():
     print("Loading membean words...")
 
-    print(application_path)
-
-    with open(application_path/'res'/'MembeanWordlist.txt') as wordlist:
+    with open(application_path / 'res' / 'MembeanWordlist.txt') as wordlist:
         while line := wordlist.readline():
             level = int(line[6])
             words = line[9:].strip().split()
@@ -48,7 +46,7 @@ full_membean_thesaurus: Dict[str, List[str]] = {}
 
 def cache_thesaurus():
     print("Loading thesaurus...")
-    with open(application_path/'res'/'MobyWords.txt') as f:
+    with open(application_path / 'res' / 'MobyWords.txt') as f:
         while line := f.readline():
             word, *synonyms = line.split(',')
             full_membean_thesaurus[word] = [synonym for synonym in synonyms if synonym in all_membean_words]
