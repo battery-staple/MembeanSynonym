@@ -1,4 +1,4 @@
-name: PyInstaller applicaiton
+name: PyInstaller Application
 
 # Controls when the workflow will run
 on:
@@ -16,11 +16,16 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
       with:
-        python-version: 3.7
-
-    - run: pip install -r requirements.txt pyinstaller
-    - run: pyinstaller main.py --add-data="res/MembeanWordlist.txt:res" --add-data="res/MobyWords.txt:res" --onefile 
-    # Optionally verify that it works (provided that it does not need user interaction)
-    - uses: actions/upload-artifact@v2
-      with:
-        path: dist/*
+        python-version: 3.9
+    - name: Install Dependencies
+      run: pip install -r requirements.txt pyinstaller
+    - name: Build Application Windows
+      run: pyinstaller main.py --add-data="res/MembeanWordlist.txt;res" --add-data="res/MobyWords.txt;res" --onefile 
+    - name: Build Application *nix
+      if: !startsWith(matrix.os, 'windows')
+      run: pyinstaller main.py --add-data="res/MembeanWordlist.txt:res" --add-data="res/MobyWords.txt:res" --onefile 
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+        with:
+          name: MembeanSynonym
+          path: dist/*
