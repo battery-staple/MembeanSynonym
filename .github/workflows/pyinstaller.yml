@@ -27,6 +27,6 @@ jobs:
       run: pyinstaller main.py --add-data="res/MembeanWordlist.txt:res" --add-data="res/MobyWords.txt:res" --onefile 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
-        with:
-          name: MembeanSynonym
-          path: dist/*
+      with:
+        name: MembeanSynonym
+        path: dist/*
