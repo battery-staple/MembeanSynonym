@@ -1,5 +1,5 @@
 # Membean Synonym Finder
-![A screenshot of using the tool](img.png)
+![A screenshot of using the tool](img/usage.png)
 A simple tool to help with adding membean words to essays. 
 It's capable of identifying membean words already in your essay,
 as well as of finding other words that could be replaced with membean words.
@@ -30,7 +30,15 @@ python3 -m pip install -r requirements.txt
 ### Linux/Whatever else
 You know how to install a `requirements.txt`.
 ## Usage
-To use this tool, run the following:
+### Running from GitHub Release (recommended)
+Navigate to the latest release in the GitHub sidebar. It should look like this:
+
+![img.png](img/release.png)
+From here, download `MembeanSynonym` if you are running macOS or Linux, and `MembeanSynonym.exe` if you are on Windows.
+
+See https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases for more information about releases.
+### Running from Source
+After downloading the repository, run the following:
 
 Note: Replace `path/to/project` with whatever the file path of the `MembeanSynonym` directory is on your device. On macOS, replace all usages of `python` with `python3`.
 ```shell
