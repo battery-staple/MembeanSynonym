@@ -20,9 +20,10 @@ jobs:
     - name: Install Dependencies
       run: pip install -r requirements.txt pyinstaller
     - name: Build Application Windows
-      run: pyinstaller main.py --add-data="res/MembeanWordlist.txt;res" --add-data="res/MobyWords.txt;res" --onefile 
+      if: startsWith(matrix.os, 'windows')
+      run: pyinstaller main.py --add-data="res\\MembeanWordlist.txt;res" --add-data="res\\MobyWords.txt;res" --onefile 
     - name: Build Application *nix
-      if: !startsWith(matrix.os, 'windows')
+      if: startsWith(matrix.os, 'windows') != true
       run: pyinstaller main.py --add-data="res/MembeanWordlist.txt:res" --add-data="res/MobyWords.txt:res" --onefile 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
