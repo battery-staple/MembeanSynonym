@@ -41,6 +41,7 @@ How do you want to input your essay (type 'c' to get it from your clipboard; typ
 ```
 Selecting `m` will allow you to manually input the text to be analyzed. 
 Selecting `c` will automatically input whatever has been copied to the clipboard using Ctrl+C (Cmd+C on macOS). 
+If `pyperclip` is not installed, you'll have to input the text manually.
 ### Membean Level Selection
 This tool can be configured to only use membean words of a specific level or levels. 
 To do so, respond with a comma separated list (such as `3, 4, 5`) when prompted:  
