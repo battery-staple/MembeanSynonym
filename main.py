@@ -3,8 +3,11 @@ from words import membean_synonyms, is_membean_word, cache_membean_words, cache_
 
 try:
     from termcolor import colored
+    import platform
+    if platform.system() == 'Windows':
+        import colorama
 except ModuleNotFoundError:
-    print("Termcolor not found; will use plain colors.")
+    print("Termcolor or colorama not found; will use plain colors.")
     def colored(text, *args, **kwargs): return text
 
 
