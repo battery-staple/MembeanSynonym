@@ -11,7 +11,7 @@ And you will probably deserve it.
 You **must** have python installed in order to run this project. See https://www.python.org/downloads/ for more information.
 
 Beyond that, this project uses two dependencies:
-- `termcolor`, to print out nice looking outputs, and
+- `termcolor` (and `colorama` on Windows), to print out nice looking outputs, and
 - `pyperclip`, to allow easy input from the clipboard (without this, it's sometimes difficult to paste in a large essay).
 
 However, neither of these dependencies are strictly required, so the following steps may be skipped (albeit with reduced functionality).
