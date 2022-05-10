@@ -46,3 +46,4 @@ if __name__ == '__main__':
     print(f"Found {colored(len(set(membean_words_in_essay)), 'red', attrs=['bold'])} "
           f"distinct membean word(s) already in the essay: "
           f"{colored(', '.join(set(membean_words_in_essay)), attrs=['bold'])}")
+    input("Press enter to quit")
