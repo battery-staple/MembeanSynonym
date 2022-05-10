@@ -6,10 +6,10 @@ try:
     import platform
     if platform.system() == 'Windows':
         import colorama
+        colorama.init()
 except ModuleNotFoundError:
     print("Termcolor or colorama not found; will use plain colors.")
     def colored(text, *args, **kwargs): return text
-
 
 if __name__ == '__main__':
     print("Ready!")
