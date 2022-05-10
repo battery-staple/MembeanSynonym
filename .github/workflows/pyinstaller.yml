@@ -21,7 +21,7 @@ jobs:
       run: pip install -r requirements.txt pyinstaller
     - name: Build Application Windows
       if: startsWith(matrix.os, 'windows')
-      run: pyinstaller main.py --add-data="res\\MembeanWordlist.txt;res" --add-data="res\\MobyWords.txt;res" --onefile 
+      run: pyinstaller main.py -c --add-data="res\\MembeanWordlist.txt;res" --add-data="res\\MobyWords.txt;res" --onefile 
     - name: Build Application *nix
       if: startsWith(matrix.os, 'windows') != true
       run: pyinstaller main.py --add-data="res/MembeanWordlist.txt:res" --add-data="res/MobyWords.txt:res" --onefile 
